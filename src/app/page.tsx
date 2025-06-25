@@ -3,11 +3,10 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import PredictionCard from "@/components/cards/PredictionCard";
-import { TrendingUp, Flame, Clock, ArrowRight, Zap } from "lucide-react";
+import { TrendingUp, Flame, Clock, ArrowRight, Zap, Star } from "lucide-react";
 import type { Prediction } from "@/types";
 
-// Update your sample data in src/app/page.tsx with this more professional data:
-
+// Sample data for demonstrations - Professional Examples
 const samplePredictions: Prediction[] = [
   {
     id: "1",
@@ -141,81 +140,96 @@ const samplePredictions: Prediction[] = [
     isPremium: false,
     result: "win",
   },
-  {
-    id: "5",
-    match: {
-      id: "m5",
-      homeTeam: {
-        id: "t9",
-        name: "C. Alcaraz",
-        logo: "/flags/spain.png",
-        country: "España",
-      },
-      awayTeam: {
-        id: "t10",
-        name: "N. Djokovic",
-        logo: "/flags/serbia.png",
-        country: "Serbia",
-      },
-      league: "Roland Garros",
-      leagueLogo: "/leagues/roland-garros.png",
-      date: "2024-06-29T15:00:00Z",
-      time: "15:00",
-      status: "upcoming",
-    },
-    type: "winner",
-    prediction: "Alcaraz en 4 Sets",
-    odds: 2.1,
-    confidence: 76,
-    analysis:
-      "Alcaraz está en su mejor momento en tierra batida. Su juventud y energía serán determinantes contra un Djokovic que viene de lesión.",
-    sport: "tennis",
-    isPremium: true,
-    result: "pending",
-  },
 ];
 
 export default function HomePage() {
   return (
     <Layout>
       <div className="px-4 py-6 space-y-6">
-        {/* Welcome Section */}
+        {/* Professional Welcome Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Pronósticos de Hoy
-          </h2>
-          <p className="text-gray-600">
-            Las mejores predicciones de nuestros expertos
-          </p>
+          <div className="bg-white rounded-2xl p-6 shadow-lg border">
+            <h2 className="text-2xl font-black text-gray-900 mb-2">
+              Pronósticos de Hoy
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Predicciones verificadas por nuestros analistas expertos
+            </p>
+            <div className="flex items-center justify-center space-x-6 text-sm">
+              <div className="flex items-center space-x-1 text-success-600">
+                <div className="w-2 h-2 bg-success-500 rounded-full" />
+                <span className="font-semibold">89% Precisión</span>
+              </div>
+              <div className="flex items-center space-x-1 text-primary-600">
+                <div className="w-2 h-2 bg-primary-500 rounded-full" />
+                <span className="font-semibold">24/7 Monitoreo</span>
+              </div>
+              <div className="flex items-center space-x-1 text-yellow-600">
+                <div className="w-2 h-2 bg-yellow-500 rounded-full" />
+                <span className="font-semibold">Análisis Experto</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Quick Stats */}
+        {/* Professional Stats Dashboard */}
         <motion.div
-          className="grid grid-cols-2 gap-4 mb-6"
+          className="grid grid-cols-3 gap-3 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="bg-gradient-to-br from-success-500 to-success-600 rounded-2xl p-4 text-white">
-            <div className="flex items-center space-x-2 mb-2">
-              <TrendingUp className="w-5 h-5" />
-              <span className="text-sm font-medium">Racha Ganadora</span>
-            </div>
-            <p className="text-2xl font-bold">7 días</p>
-            <p className="text-xs opacity-90">+12.4% ROI</p>
+          <div className="bg-gradient-to-br from-success-500 to-success-600 rounded-2xl p-4 text-white text-center">
+            <div className="text-2xl font-black">89%</div>
+            <div className="text-xs font-medium opacity-90">Precisión</div>
+            <div className="text-xs opacity-75">Esta semana</div>
           </div>
 
-          <div className="bg-gradient-to-br from-warning-500 to-warning-600 rounded-2xl p-4 text-white">
-            <div className="flex items-center space-x-2 mb-2">
-              <Flame className="w-5 h-5" />
-              <span className="text-sm font-medium">Picks Calientes</span>
+          <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl p-4 text-white text-center">
+            <div className="text-2xl font-black">+24%</div>
+            <div className="text-xs font-medium opacity-90">ROI Promedio</div>
+            <div className="text-xs opacity-75">Último mes</div>
+          </div>
+
+          <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl p-4 text-white text-center">
+            <div className="text-2xl font-black">127</div>
+            <div className="text-xs font-medium opacity-90">
+              Picks Ganadores
             </div>
-            <p className="text-2xl font-bold">4</p>
-            <p className="text-xs opacity-90">Disponibles hoy</p>
+            <div className="text-xs opacity-75">Este mes</div>
+          </div>
+        </motion.div>
+
+        {/* Live Activity Banner */}
+        <motion.div
+          className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-600 rounded-2xl p-4 text-white mb-6 relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="absolute inset-0 bg-white/5 animate-pulse" />
+          <div className="relative flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <motion.div
+                className="w-3 h-3 bg-success-400 rounded-full"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              />
+              <div>
+                <p className="font-bold text-sm">🔥 Pronóstico en Vivo</p>
+                <p className="text-xs opacity-90">
+                  Manchester City vs Arsenal - Ganando 2-1
+                </p>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="text-lg font-black">+47%</p>
+              <p className="text-xs opacity-90">Ganancia</p>
+            </div>
           </div>
         </motion.div>
 
@@ -226,14 +240,25 @@ export default function HomePage() {
           transition={{ delay: 0.4 }}
         >
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-gray-900 flex items-center space-x-2">
-              <Zap className="w-5 h-5 text-primary-600" />
-              <span>Pronósticos Destacados</span>
-            </h3>
-            <button className="flex items-center space-x-1 text-primary-600 text-sm font-medium">
-              <span>Ver todos</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div>
+              <h3 className="text-lg font-black text-gray-900 flex items-center space-x-2">
+                <Zap className="w-5 h-5 text-primary-600" />
+                <span>Pronósticos de Expertos</span>
+                <span className="bg-secondary-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  HOY
+                </span>
+              </h3>
+              <p className="text-xs text-gray-600">
+                ⏰ Actualizados hace 3 minutos
+              </p>
+            </div>
+            <div className="text-right">
+              <button className="flex items-center space-x-1 text-primary-600 text-sm font-bold hover:text-primary-700 transition-colors">
+                <span>Ver todos</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <p className="text-xs text-gray-500">🔥 5 picks activos</p>
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -270,28 +295,60 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Premium Upgrade Banner */}
+        {/* Professional Premium CTA */}
         <motion.div
-          className="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl p-4 text-white"
+          className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded-2xl p-6 text-white relative overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
           whileHover={{ scale: 1.02 }}
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="font-bold text-lg">¡Hazte Premium!</p>
-              <p className="text-sm opacity-90">
-                Accede a análisis exclusivos y estadísticas avanzadas
-              </p>
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-transparent" />
+          <div className="relative">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex-1">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Star className="w-5 h-5" fill="currentColor" />
+                  <span className="text-sm font-bold uppercase tracking-wider">
+                    Membresía Premium
+                  </span>
+                  <span className="bg-white/20 text-xs px-2 py-1 rounded-full font-bold">
+                    50% OFF
+                  </span>
+                </div>
+                <h3 className="text-xl font-black mb-2">
+                  Análisis Exclusivos + ROI Garantizado
+                </h3>
+                <div className="space-y-1 text-sm opacity-90">
+                  <p>✅ Pronósticos con 89% de precisión</p>
+                  <p>✅ Análisis detallado de cada partido</p>
+                  <p>✅ Notificaciones en tiempo real</p>
+                  <p>✅ Grupo VIP de Telegram</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-xs opacity-75 line-through">
+                  €49.99/mes
+                </div>
+                <div className="text-2xl font-black">€24.99</div>
+                <div className="text-xs opacity-90">por mes</div>
+              </div>
             </div>
-            <motion.button
-              className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Upgrade
-            </motion.button>
+
+            <div className="flex items-center justify-between">
+              <div className="text-xs">
+                <span className="bg-white/20 px-2 py-1 rounded-full">
+                  ⏰ Oferta termina en 23h 45m
+                </span>
+              </div>
+              <motion.button
+                className="bg-white text-yellow-600 px-6 py-3 rounded-xl font-black text-sm hover:bg-gray-100 transition-colors shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                UNIRSE AHORA
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
